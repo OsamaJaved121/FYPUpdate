@@ -44,11 +44,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
   @override
   void didChangeDependencies() {
     if (_isInit) {
-      print("checking if we eve made it in here.");
-      //final productId = ModalRoute.of(context)!.settings.arguments as String;
       final arguments = ModalRoute.of(context)!.settings.arguments;
       final productId = arguments is String ? arguments : '';
-      print("value of product id is $productId");
       if (productId != '') {
         _editedProduct =
             Provider.of<Products>(context, listen: false).findById(productId);
@@ -98,8 +95,6 @@ class _EditProductScreenState extends State<EditProductScreen> {
     if (_editedProduct.id != '') {
       await Provider.of<Products>(context, listen: false)
           .updateProduct(_editedProduct.id, _editedProduct);
-
-      Navigator.of(context).pop();
     } else {
       try {
         await Provider.of<Products>(context, listen: false)
@@ -121,13 +116,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
           ),
         );
       }
-      // finally {
-      //   setState(() {
-      //     _isLoading = false;
-      //   });
-      //   Navigator.of(context).pop();
-      // }
     }
+    print('before final setState call');
     setState(() {
       _isLoading = false;
     });
