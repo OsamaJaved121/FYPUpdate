@@ -11,7 +11,7 @@ import './screens/product_detail_screen.dart';
 import './screens/edit_product_screen.dart';
 import './screens/orders_screen.dart';
 import './screens/user_products_screen.dart';
-import './screens/item_page.dart';
+//import './screens/item_page.dart';
 
 // Providers imports:
 import './providers/products.dart';

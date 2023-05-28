@@ -27,6 +27,7 @@ class UserProductItem extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.edit),
               onPressed: () {
+                print(id);
                 Navigator.of(context)
                     .pushNamed(EditProductScreen.routeName, arguments: id);
               },
@@ -41,7 +42,10 @@ class UserProductItem extends StatelessWidget {
                 } catch (error) {
                   scaffold.showSnackBar(
                     SnackBar(
-                      content: const Text('Deleting Failed!',textAlign: TextAlign.center,),
+                      content: const Text(
+                        'Deleting Failed!',
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   );
                 }

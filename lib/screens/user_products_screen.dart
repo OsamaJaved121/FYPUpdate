@@ -16,6 +16,7 @@ class UserProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productsData = Provider.of<Products>(context);
+    print(productsData.items[0].id);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF4C53A5),
@@ -35,14 +36,14 @@ class UserProductsScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              Navigator.of(context).pushNamed(EditProductScreen.routeName);
+              Navigator.of(context).pushNamed(EditProductScreen.routeName);//,arguments: productsData.items[0].id);
             },
           ),
         ],
       ),
       drawer: AppDrawer(),
       body: RefreshIndicator(
-        onRefresh:() => _refreshProducts(context),
+        onRefresh: () => _refreshProducts(context),
         child: Padding(
           padding: EdgeInsets.all(8),
           child: ListView.builder(
